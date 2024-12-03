@@ -17,12 +17,12 @@ const Profile = () => {
             </CCol>
             <CCol sm={7}>
               <h2>Lâm Văn Vũ</h2>
-              <p>MSV: B21DCCN796</p>
-              <p>Lớp: D21HTTT3</p>
+              <p><strong>MSV: </strong>B21DCCN796</p>
+              <p><strong>Lớp: </strong>D21HTTT3</p>
               <p><strong>Email: </strong>vulv.nvgb@gmail.com</p>
               <p><strong>SĐT: </strong>0396922593</p>
-              <p><strong>Github: </strong><a href="https://github.com/marx5/IOT-system" target="_blank" rel="noopener noreferrer">IOT-system</a></p>
-              <p><strong>PDF: </strong><a href="" target="_blank" rel="noopener noreferrer">Báo cáo</a></p>
+              <p><strong>Github: </strong><a href="https://github.com/marx5/BTL" target="_blank" rel="noopener noreferrer">BTL</a></p>
+              <p><strong>PDF: </strong><a href="https://drive.google.com/file/d/1ARUmxbkaHyDx4RcOmqUEmFY2zKB9bUnc/view?usp=sharing" target="_blank" rel="noopener noreferrer">Báo cáo</a></p>
               <p><strong>Apidoc: </strong><a href="http://localhost:3001/api#/" target="_blank" rel="noopener noreferrer">Swagger API</a></p>
             </CCol>
           </CRow>

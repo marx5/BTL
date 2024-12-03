@@ -6,7 +6,7 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/
 @ApiTags('led')
 @Controller('led')
 export class LedController {
-  constructor(private readonly ledService: LedService) {}
+  constructor(private readonly ledService: LedService) { }
 
   @Get('paginated')
   @ApiOperation({ summary: 'Phân trang' })

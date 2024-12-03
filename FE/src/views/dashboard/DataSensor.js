@@ -25,7 +25,7 @@ const DataSensor = () => {
   const [sortOrder, setSortOrder] = useState(null);
   const [isSorted, setIsSorted] = useState(false);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(10);
   const [totalPages, setTotalPages] = useState(1);
   const [searchField, setSearchField] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -34,7 +34,7 @@ const DataSensor = () => {
   const fetchSensors = useCallback(
     async (page, limit, searchField, searchValue, globalSearchValue) => {
       try {
-        let url = `http://localhost:3001/sensor/paginated?page=${page}&limit=${limit}`;
+        let url = `http://localhost:3001/sensor/paginated?page=${page}&limit=${limit}&sortBy=id&order=desc`;
         if (searchField && searchValue) {
           url += `&searchField=${searchField}&searchValue=${searchValue}`;
         }
@@ -261,8 +261,8 @@ const DataSensor = () => {
         <CInputGroup className="mb-3">
           <CFormSelect value={searchField} onChange={handleSearchFieldChange}>
             <option value="">Select Field</option>
-            <option value="humidity">Humidity</option>
             <option value="temperature">Temperature</option>
+            <option value="humidity">Humidity</option>
             <option value="light">Light</option>
             <option value="time_updated">Time Updated</option>
 
@@ -287,21 +287,21 @@ const DataSensor = () => {
             <CTableRow>
               <CTableHeaderCell scope="col">ID</CTableHeaderCell>
               <CTableHeaderCell scope="col">
-                Humidity
-                <span
-                  onClick={() => handleSort("humidity")}
-                  style={{ cursor: "pointer" }}
-                >
-                  {getSortIcon("humidity")}
-                </span>
-              </CTableHeaderCell>
-              <CTableHeaderCell scope="col">
                 Temperature
                 <span
                   onClick={() => handleSort("temperature")}
                   style={{ cursor: "pointer" }}
                 >
                   {getSortIcon("temperature")}
+                </span>
+              </CTableHeaderCell>
+              <CTableHeaderCell scope="col">
+                Humidity
+                <span
+                  onClick={() => handleSort("humidity")}
+                  style={{ cursor: "pointer" }}
+                >
+                  {getSortIcon("humidity")}
                 </span>
               </CTableHeaderCell>
               <CTableHeaderCell scope="col">
@@ -328,8 +328,8 @@ const DataSensor = () => {
             {sensors.map((sensor) => (
               <CTableRow key={sensor.id}>
                 <CTableDataCell>{sensor.id}</CTableDataCell>
-                <CTableDataCell>{sensor.humidity}</CTableDataCell>
                 <CTableDataCell>{sensor.temperature}</CTableDataCell>
+                <CTableDataCell>{sensor.humidity}</CTableDataCell>
                 <CTableDataCell>{sensor.light}</CTableDataCell>
                 <CTableDataCell>
                   {formatDate(sensor.time_updated)}

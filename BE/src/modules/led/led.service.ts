@@ -26,7 +26,7 @@ export class LedService {
     }
   }
 
-  async getPaginatedSensors(page: number, limit: number) {
+  async getPaginatedSensors(page: number, limit: number): Promise<any> {
     // Giả sử bạn có một mảng cảm biến để phân trang
     let sensors = await this.getAllLed();
 

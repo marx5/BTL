@@ -12,7 +12,7 @@ export class SensorService {
     private readonly mqttService: MqttService,
     private sensorGateway: SensorGateway,
   ) {
-    this.subscribeToEsp8266Data();
+    this.subscribeToEsp32Data();
   }
 
   async getAllSensors(): Promise<any> {
@@ -138,7 +138,7 @@ export class SensorService {
     };
   }
 
-  private subscribeToEsp8266Data() {
+  private subscribeToEsp32Data() {
     this.mqttService.subscribe(
       'esp_data',
       async (topic: string, payload: Buffer) => {

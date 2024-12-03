@@ -17,12 +17,12 @@ const DataLed = () => {
   const [leds, setLeds] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(10);
 
   const fetchLeds = async (page, limit) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/led/paginated?page=${page}&limit=${limit}`,
+        `http://localhost:3001/led/paginated?page=${page}&limit=${limit}&sortBy=id&order=asc`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },

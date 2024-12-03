@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CCard, CRow, CCol } from "@coreui/react";
+import { CCard, CRow, CCol, CSpinner } from "@coreui/react";
 import { Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { FaFan } from "react-icons/fa";
@@ -95,8 +95,10 @@ const ButtonControll = () => {
             />
             <CusSwitch
               checked={l1}
+              disabled={loading}
               onChange={() => !loading && handleSwitchChange(1)}
             />
+            {loading && <CSpinner size="sm" />}
           </div>
         </CCol>
 
@@ -111,8 +113,10 @@ const ButtonControll = () => {
             />
             <CusSwitch
               checked={l2}
+              disabled={loading}
               onChange={() => !loading && handleSwitchChange(2)}
             />
+            {loading && <CSpinner size="sm" />}
           </div>
         </CCol>
 
@@ -127,8 +131,10 @@ const ButtonControll = () => {
             />
             <CusSwitch
               checked={l3}
+              disabled={loading}
               onChange={() => !loading && handleSwitchChange(3)}
             />
+            {loading && <CSpinner size="sm" />}
           </div>
         </CCol>
       </CRow>
